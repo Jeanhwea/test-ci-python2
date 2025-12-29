@@ -38,10 +38,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - env: 
+          PATH: "C:\Python27;C:\Python27\Scripts;$env:PATH"
+
       - name: Set up Python 2.7
         run: |
           choco install python2 -version 2.7.18
-          $env:PATH = "C:\Python27;C:\Python27\Scripts;$env:PATH"
+          # $env:PATH = "C:\Python27;C:\Python27\Scripts;$env:PATH"
 
       - name: Verify Python version
         run: |
