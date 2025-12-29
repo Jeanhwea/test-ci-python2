@@ -17,9 +17,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Python 2.7
-        uses: actions/setup-python@v5
+        uses: LizardByte/setup-python-action@master
         with:
-          python-version: "2.7"
+          python-version: '2.7'
 
       - name: Print python version
         run: |
