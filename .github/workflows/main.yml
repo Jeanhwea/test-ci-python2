@@ -40,6 +40,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Python 2.7
+        run: |
+          choco install python2 -version 2.7.18
+          refreshenv
+
       - name: Print python version
         run: |
           python --version
