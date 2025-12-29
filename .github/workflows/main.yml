@@ -21,9 +21,6 @@ jobs:
           brew install pyenv
           pyenv install 2.7.18
           pyenv global 2.7.18
-
-      - name: Print python version
-        run: |
           python --version
 
       - name: Run Main
