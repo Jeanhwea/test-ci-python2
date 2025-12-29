@@ -40,10 +40,16 @@ jobs:
       - name: Set up Python 2.7
         run: |
           choco install python2 -version 2.7.18
-          refreshenv
+          
+          # Refresh environment variables in PowerShell
+          if ($env:ChocolateyInstall) {
+            Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+            refreshenv
+          } else {
+            # Fallback to direct PATH update
+            $env:PATH = "C:\Python27;C:\Python27\Scripts;$env:PATH"
+          }
 
-      - name: Print python version
-        run: |
           python --version
 
       - name: Run Main
