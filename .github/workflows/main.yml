@@ -21,6 +21,9 @@ jobs:
           brew install pyenv
           pyenv install 2.7.18
           pyenv global 2.7.18
+          # Add pyenv to PATH
+          echo "$(pyenv root)/shims" >> $GITHUB_PATH
+          # Verify Python version
           python --version
 
       - name: Run Main
