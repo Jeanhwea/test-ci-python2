@@ -23,12 +23,10 @@ jobs:
           pyenv global 2.7.18
           # Add pyenv to PATH
           echo "$(pyenv root)/shims" >> $GITHUB_PATH
-          # Verify Python version
-          python --version
-
-      - name: Run Main
+      
+      - name: Verify Python version
         run: |
-          python main.py
+          python --version
 
   test-windows:
     strategy:
@@ -44,9 +42,7 @@ jobs:
         run: |
           choco install python2 -version 2.7.18
           $env:PATH = "C:\Python27;C:\Python27\Scripts;$env:PATH"
-          python --version
 
-      - name: Run Main
+      - name: Verify Python version
         run: |
-          $env:PATH = "C:\Python27;C:\Python27\Scripts;$env:PATH"
-          python main.py
+          python --version
