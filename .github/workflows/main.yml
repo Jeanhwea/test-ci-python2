@@ -1,0 +1,43 @@
+name: Test Python Version
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  test-macos:
+    strategy:
+      matrix:
+        os: [ macos-15-intel ]
+        arch: [ x64 ]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print python version
+        run: |
+          python --version
+
+      - name: Run Main
+        run: |
+          python main.py
+
+  test-windows:
+    strategy:
+      matrix:
+        os: [ windows-2022 ]
+        arch: [ x64 ]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print python version
+        run: |
+          python --version
+
+      - name: Run Main
+        run: |
+          python main.py
